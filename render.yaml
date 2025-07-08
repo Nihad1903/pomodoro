@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: uniscores
+    env: python
+    buildCommand: "./manage.py collectstatic --noinput"
+    startCommand: "gunicorn UniScores.wsgi:application --bind 0.0.0.0:8000"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: pomodorocore.settings
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: ALLOWED_HOSTS
+        value: pomodoro.onrender.com,localhost
