@@ -34,7 +34,6 @@ try:
     User = get_user_model()
     if not User.objects.filter(email='nihadrevan@example.com').exists():
         User.objects.create_superuser(
-            username='nihadrevan',
             email='nihadrevan@example.com',
             password='nihadrevan11'
         )
