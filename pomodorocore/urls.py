@@ -27,20 +27,6 @@ from drf_spectacular.views import (
 )
 
 
-from django.contrib.auth import get_user_model
-from django.db.utils import OperationalError
-
-try:
-    User = get_user_model()
-    if not User.objects.filter(email='nihadrevan@example.com').exists():
-        User.objects.create_superuser(
-            email='nihadrevan@example.com',
-            password='nihadrevan11'
-        )
-        print("✅ Superuser 'admin' created.")
-except OperationalError:
-    print("⚠️ Database not ready yet for superuser creation.")
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('pomodoro.urls')),
