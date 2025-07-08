@@ -32,7 +32,7 @@ from django.db.utils import OperationalError
 
 try:
     User = get_user_model()
-    if not User.objects.filter(username='admin').exists():
+    if not User.objects.filter(email='nihadrevan@example.com').exists():
         User.objects.create_superuser(
             username='nihadrevan',
             email='nihadrevan@example.com',
